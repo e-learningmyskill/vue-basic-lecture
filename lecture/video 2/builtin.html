@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- you can't use this methods -->
+    <img src="{{ src }}" alt="{{ alt }}" />
+    <hr>
+
+    <!-- use this built in directives -->
+    <img v-bind:src="src" v-bind:alt="alt" />
+    <hr>
+    <img :src="src" :alt="alt" />
+    <hr>
+    <a v-bind:href="link">go to mister aladin</a>
+
+    <p v-text="greeting"></p>
+    <div v-html="htmlcode"></div>
+  </div>
+</body>
+
+<script>
+  const App = {
+    data () {
+      return {
+        src: 'https://picsum.photos/200/300',
+        alt: 'image mountain',
+        link: 'http://misteraladin.com',
+        greeting: 'Hello World!',
+        htmlcode: '<strong>HTML CODE</strong>'
+      }
+    },
+  }
+
+  Vue.createApp(App).mount('#app')
+</script>
+</html>
